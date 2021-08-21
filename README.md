@@ -16,6 +16,6 @@ Telegram chat bot to save time filling out a lengthy form.
 6. For Section 7, `URTI` can be entered to use the default URTI follow up actions instead of typing the full sentence out.
 7. For Section 10, formatting is applied. E.g. Output is in block letters regardless of the input. Phone number will be formatted to contain a space, even if the number was not seperated.
 
-### Output will automatically be formatted to include bolding and the relevant spacing! Basically copy-paste the output into WhatsApp.
+### Output will automatically be formatted to include bolding, conversion to block letters and the relevant spacing! Basically copy-paste the output into WhatsApp.
 
 
