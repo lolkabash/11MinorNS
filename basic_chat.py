@@ -40,7 +40,7 @@ class Form:
             2
         ] = f"""
         2) *Particulars of Serviceman/men Involved*:
-        NRIC: {masked_NRIC}
+        NRIC: {masked_NRIC.upper()}
         Rank/Name: {rank.upper()} {fullname.upper()}
         Svs Status: {service.upper()}
         Sex/Age: {sex.upper()}/{age}
@@ -72,7 +72,7 @@ class Form:
             5
         ] = f"""
         On {update_date},
-        
+
         {updates}
         """
 
