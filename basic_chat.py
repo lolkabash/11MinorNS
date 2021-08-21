@@ -71,7 +71,8 @@ class Form:
         self.sections[
             5
         ] = f"""
-        On {update_date}
+        On {update_date},
+        
         {updates}
         """
 
@@ -167,10 +168,9 @@ class Form:
 
 
 # Gather Update (Helper Function)
-def request_update():
-    today = datetime.now().strftime("%d%m%y")
+def request_update(date):
     updates = []
-    print(f'Send your Report Sick Updates as of {today}. Type "DONE" to submit!\n')
+    print(f'Send your Report Sick Updates as of {date}. Type "DONE" to submit!\n')
     while True:
         incident = input().strip()
         if incident.strip().upper() == "DONE":
@@ -226,13 +226,15 @@ def chat():
     form.sect_3a("\n".join(history_3a))
 
     # Section 3b
+    date = datetime.now().strftime("%d%m%y")
     print("== SECTION 3B ==\n")
-    form.sect_3b(request_update())
+    form.sect_3b(request_update(date))
 
     # Section 3c
     if type == "FINAL":
+        date = input("FINAL UPDATE DATE: ").strip()
         print("== SECTION 3C ==\n")
-        form.sect_3c(request_update())
+        form.sect_3c(date, request_update(date))
 
     # Section 3d
     print("== SECTION 3D ==\n")
