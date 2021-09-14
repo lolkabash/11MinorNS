@@ -19,16 +19,11 @@ def form():
 
 
 # Main Display
-@app.route("/data", methods=["POST", "GET"])
+@app.route("/data", methods=["POST"])
 def data():
-    if request.method == "GET":
-        return (
-            f"The URL /data is accessed directly. Try going to '/form' to submit form"
-        )
-    if request.method == "POST":
-        form_data = request.form.to_dict(flat=True)
-        output = site(form_data)
-        return render_template("data.html", output=output)
+    form_data = request.form.to_dict(flat=True)
+    output = site(form_data)
+    return render_template("data.html", output=output)
 
 
 # Errors
@@ -43,4 +38,4 @@ def internal_server_error(e):
 
 
 # Run App
-app.run(host="localhost", port=5000, debug=True)
+app.run(host="0.0.0.0", port=5000, debug=True)

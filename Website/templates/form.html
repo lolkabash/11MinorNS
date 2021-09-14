@@ -1,61 +1,71 @@
-<form action="/data" method = "POST">
-    <h1><b>{{DATE}}, {{TIME}}hrs</b></h1>
-    <section>
-        <h2>11 C4I Bn, SIG</h2>
-        <select name="type" id="type">
-            <option value="New">New</option>
-            <option value="Final">Final</option>
-        </select>
-    </section>
-
-    <section>
-        <h2>1) <b>Nature and Type of incident:</b></h2>
-        <select name="nature" id="nature">
-            <option value="NTR">Non-Training Related</option>
-            <option value="TR">Training Related</option>
-        </select>
-        <p>Symptoms: <input type = "text" name = "symptoms" /></p>
-    </section>
-
-    <section>
-        <h2>2) <b>Particulars of Serviceman/men Involved</b>:</h2>
-        <p>NRIC: TXXX<input type = "text" name = "NRIC" /></p>
-        <p><label for="rank">Rank/Name: </label>
-        <select name="rank" id="rank">
-            <option value="PTE">PTE</option>
-            <option value="LCP">LCP</option>
-            <option value="CPL">CPL</option>
-            <option value="CFC">CFC</option>
-        </select>/<input type = "text" name = "fullname" /></p>
-        <p>Svs Status: NSF</p>
-        <p><label for="sex">Sex/Age: </label>
-
-        <select name="sex" id="sex">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select><label for="age"> /</label>
-
-        <select name="age" id="age">
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-        </select></p>
-        <p>Coy/Pl: 11C4I/SIGNALS</p>
-    </section>
-
-    <section>
-        <h2>3) <b>Brief Description of Incident</b>:</h2>
-        <p>Serivceman has previously reported sick on the following date:</p>
-        <p><textarea id="history_3a" name="history_3a" rows="5" cols="60">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Liner Form</title>
+</head>
+<body>
+    <form action="/data" method = "POST">
+        <h1><b>{{DATE}}, {{TIME}}hrs</b></h1>
+        <section>
+            <h2>11 C4I Bn, SIG</h2>
+            <select name="type" id="type">
+                <option value="New">New</option>
+                <option value="Final">Final</option>
+            </select>
+        </section>
+    
+        <section>
+            <h3>1) <b>Nature and Type of incident:</b></h3>
+            <select name="nature" id="nature">
+                <option value="NTR">Non-Training Related</option>
+                <option value="TR">Training Related</option>
+            </select>
+            <p>Symptoms: <input type = "text" name = "symptoms" /></p>
+        </section>
+    
+        <section>
+            <h3>2) <b>Particulars of Serviceman/men Involved</b>:</h3>
+            <p>NRIC: TXXX<input type = "text" name = "NRIC" /></p>
+            <p><label for="rank">Rank/Name: </label>
+            <select name="rank" id="rank">
+                <option value="PTE">PTE</option>
+                <option value="LCP">LCP</option>
+                <option value="CPL">CPL</option>
+                <option value="CFC">CFC</option>
+                <option value="3SG">CFC</option>
+            </select>/<input type = "text" name = "fullname" /></p>
+            <p>Svs Status: NSF</p>
+            <p><label for="sex">Sex/Age: </label>
+    
+            <select name="sex" id="sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select><label for="age"> /</label>
+    
+            <select name="age" id="age">
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+            </select></p>
+            <p>Coy/Pl: 11C4I/SIGNALS</p>
+        </section>
+    
+        <section>
+            <h3>3) <b>Brief Description of Incident</b>:</h3>
+            <p>Serivceman has previously reported sick on the following date:</p>
+            <p><textarea class = "padded" id="history_3a" name="history_3a" rows="5" cols="60">
 [X]. [DDMMYY] (Reason) [Excuse] from [DDMMYY] to [DDMMYY]
-        </textarea></p>
-    </section>
-
-    <section>
-        <h2>Timeline Of RS:</h2>
-        <p><textarea id="history_3b" name="history_3b" rows="18" cols="80">
+            </textarea></p>
+        </section>
+    
+        <section>
+            <h3>Timeline Of RS:</h3>
+            <p><textarea class = "padded" id="history_3b" name="history_3b" rows="18" cols="80">
 On {{DATE}},
 
 At [HHMM]hrs, Serviceman request to report sick for [SYMPTOMS].
@@ -73,83 +83,92 @@ At [HHMM]hrs, he was given medication and [Excuse] from [DDMMYY] to [DDMMYY].
 On [DDMMYY],
 
 At [HHMM]hrs, PCR swab test returned *[POSITIVE/NEGATIVE]*.
-        </textarea></p>
-    </section>
-
-    <section>
-        <h2>Other Details</h2>
-        <p><label for="results_ALL"><b>SWAB Test Done: </b></label>
-        <select name="results_ALL" id="results_ALL">
-            <option value="X">Pending</option>
-            <option value="N">Negative</option>
-            <option value="P">Positive</option>
-        </select><label for="results_ART">(ART - </label>
-        <select name="results_ART" id="results_PCR">
-            <option value="X">Pending</option>
-            <option value="N">Negative</option>
-            <option value="P">Positive</option>
-        </select><label for="results_ART">, PCR - </label>
-        <select name="results_PCR" id="results_PCR">
-            <option value="X">Pending</option>
-            <option value="N">Negative</option>
-            <option value="P">Positive</option>
-        </select>)</p>
-        <p>- Travelled Overseas in the past 14 days: NIL</p>
-        <p>- Close Contact with a confirmed case: NIL</p>
-        <p>- Stays in a foreign worker dormitory: NIL</p>
-        <p>- Works in a High-Risk Area: NIL</p>
-        <p>- Prolonged ARI with fever above 37.5C for 4 days and above: NIL</p>
-        <p>- Suspected Pneumonia: NIL </p>
-    </section>
-
-
-    <section>
-        <h2>4) <b>Current Status</b>:</h2>
-        <p>E.g. [Excuse] from [DDMMYY] to [DDMMYY].</p>
-        <p><input type = "status" name = "status" /> from {{DATE}} to <input type = "date_end" name = "date_end" /></p>
-    </section>
-
-    <section>
-        <h2>5) <b>Date & Time of Incident</b>:</h2>
-        <p>{{DATE}}, <input type = "text" name = "initial_time"/>hrs</p>
-    </section>
-
-    <section>
-        <h2>6) <b>Location of incident</b>:</h2>
-        <p><input type = "location" name = "location"/></p>
-    </section>
-
-    <section>
-        <h2>7) <b>Follow Up Actions:</b></h2>
-        <p>Unit will continue to monitor serviceman’s condition. He will report back to camp when his MC ends or when his swab test result returns negative. Which ever is later.</p>
-    </section>
-
-    <section>
-        <h2>8) <b>Details/Particulars of civilian involved, if any</b>: (For accidents)</h2>
-        <p>NRIC (Masked): -
-        <p>Name: - </p>
-        <p>Age: - </p>
-        <p>Gender: - </p>
-        <p>Contact No.: - </p>
-    </section>
-
-    <section>
-        <h2>9) <b>Date & Time reported to GSOC</b>:</h2>
-        <p>Verbal: - </p>
-        <p>ASIS: - </p>
-    </section>
-
-    <section>
-        <h2>10) <b>Reporting Officer</b>: </h2>
-        <p><b>Point of Contact</b>:</p>
-        <p>3SG <input type = "text" name = "POC_name" /></p>
-        <p>DET COMD, SIG COY</p>
-        <p><input type = "text" name = "POC_phone" /></p>
-    </section>
-
-    <section>
-        <h2><b>Vetted By</b></h2>
-    </section>
-
-    <p><input type = "submit" value = "Submit" /></p>
-</form>
+            </textarea></p>
+        </section>
+    
+        <section>
+            <h3>Other Details</h3>
+            <p><label for="results_ALL"><b>SWAB Test Done: </b></label>
+            <select name="results_ALL" id="results_ALL">
+                <option value="X">Pending</option>
+                <option value="N">Negative</option>
+                <option value="P">Positive</option>
+            </select><label for="results_ART">(ART - </label>
+            <select name="results_ART" id="results_PCR">
+                <option value="X">Pending</option>
+                <option value="N">Negative</option>
+                <option value="P">Positive</option>
+            </select><label for="results_ART">, PCR - </label>
+            <select name="results_PCR" id="results_PCR">
+                <option value="X">Pending</option>
+                <option value="N">Negative</option>
+                <option value="P">Positive</option>
+            </select>)</p>
+            <p>- Travelled Overseas in the past 14 days: NIL</p>
+            <p>- Close Contact with a confirmed case: NIL</p>
+            <p>- Stays in a foreign worker dormitory: NIL</p>
+            <p>- Works in a High-Risk Area: NIL</p>
+            <p>- Prolonged ARI with fever above 37.5C for 4 days and above: NIL</p>
+            <p>- Suspected Pneumonia: NIL </p>
+        </section>
+    
+    
+        <section>
+            <h3>4) <b>Current Status</b>:</h3>
+            <p>E.g. [Excuse] from [DDMMYY] to [DDMMYY].</p>
+            <p><input type = "status" name = "status" /> from {{DATE}} to <input type = "date_end" name = "date_end" /></p>
+        </section>
+    
+        <section>
+            <h3>5) <b>Date & Time of Incident</b>:</h3>
+            <p>{{DATE}}, <input type = "text" name = "initial_time"/>hrs</p>
+        </section>
+    
+        <section>
+            <h3>6) <b>Location of incident</b>:</h3>
+            <p><input type = "location" name = "location"/></p>
+        </section>
+    
+        <section>
+            <h3>7) <b>Follow Up Actions:</b></h3>
+            <p>Unit will continue to monitor serviceman’s condition. He will report back to camp when his MC ends or when his swab test result returns negative. Which ever is later.</p>
+        </section>
+    
+        <section>
+            <h3>8) <b>Details/Particulars of civilian involved, if any</b>: (For accidents)</h3>
+            <p>NRIC (Masked): -
+            <p>Name: - </p>
+            <p>Age: - </p>
+            <p>Gender: - </p>
+            <p>Contact No.: - </p>
+        </section>
+    
+        <section>
+            <h3>9) <b>Date & Time reported to GSOC</b>:</h3>
+            <p>Verbal: - </p>
+            <p>ASIS: - </p>
+        </section>
+    
+        <section>
+            <h3>10) <b>Reporting Officer</b>: </h3>
+            <p><b>Point of Contact</b>:</p>
+            <p>3SG <input type = "text" name = "POC_name" /></p>
+            <p>DET COMD, SIG COY</p>
+            <p><input type = "text" name = "POC_phone" /></p>
+        </section>
+    
+        <section>
+            <h3><b>Vetted By</b></h3>
+        </section>
+    
+        <p><input type = "submit" value = "Submit" /></p>
+    </form>
+</body>
+<style>
+    .padded {
+            width: 100%;
+            height: 100%; 
+            box-sizing: border-box;
+        }
+</style>
+</html>
