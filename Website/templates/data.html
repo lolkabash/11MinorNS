@@ -1,4 +1,62 @@
-{% for key,value in form_data.items() %}
-<h2>{{key}}</h2>
-<p>{{value}}</p>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>11 Liner Output</title>
+    </head>
+    <div class = "verticle-centre">
+        <button class="button" id="copyText">Copy!</button>
+    </div>
+    <body>
+        <textarea rows="50" cols="70" id="copytextarea">{{output}}</textarea>
+    </body>
+    <style>
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            width: 528px;
+            }
+        .container {
+            display: flex;
+            flex-flow: column;
+            height: 200px;
+            border: 1px solid gray;
+            }
+            .div1, .div3 {
+            height: 40px;
+            }
+            .div2 {
+            flex: 1;
+            border: 1px solid red;
+            text-align: left;
+            flex-direction:column;
+            }
+    </style>
+    <script>
+        copyTextBtn = document.querySelector('#copyText');
+        copyTextBtn.addEventListener('click', function(event) {
+        let copyTextarea = document.querySelector('#copytextarea');
+        copyTextarea.focus();
+        copyTextarea.select();
+        try {
+            let successful = document.execCommand('copy');
+            let msg = successful ? 'Copied!' : 'Failed To Copy!';
+            alert(msg);
+        } catch(err) {
+            alert('Error! Cannot Copy.');
+        }
+        });
+    </script>
+</html>

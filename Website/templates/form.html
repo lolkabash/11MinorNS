@@ -2,7 +2,7 @@
     <h1><b>{{DATE}}, {{TIME}}hrs</b></h1>
     <section>
         <h2>11 C4I Bn, SIG</h2>
-        <select name="Type" id="Type">
+        <select name="type" id="type">
             <option value="New">New</option>
             <option value="Final">Final</option>
         </select>
@@ -10,27 +10,27 @@
 
     <section>
         <h2>1) <b>Nature and Type of incident:</b></h2>
-        <select name="rel" id="rel">
+        <select name="nature" id="nature">
             <option value="NTR">Non-Training Related</option>
             <option value="TR">Training Related</option>
         </select>
-        <p>Symptoms: <input type = "text" name = "Name" /></p>
+        <p>Symptoms: <input type = "text" name = "symptoms" /></p>
     </section>
 
     <section>
         <h2>2) <b>Particulars of Serviceman/men Involved</b>:</h2>
-        <p>NRIC: TXXX<input type = "text" name = "Name" /></p>
+        <p>NRIC: TXXX<input type = "text" name = "NRIC" /></p>
         <p><label for="rank">Rank/Name: </label>
         <select name="rank" id="rank">
             <option value="PTE">PTE</option>
             <option value="LCP">LCP</option>
             <option value="CPL">CPL</option>
             <option value="CFC">CFC</option>
-        </select>/<input type = "text" name = "Name" /></p>
+        </select>/<input type = "text" name = "fullname" /></p>
         <p>Svs Status: NSF</p>
         <p><label for="sex">Sex/Age: </label>
 
-        <select name="rel" id="rel">
+        <select name="sex" id="sex">
             <option value="M">Male</option>
             <option value="F">Female</option>
         </select><label for="age"> /</label>
@@ -48,14 +48,14 @@
     <section>
         <h2>3) <b>Brief Description of Incident</b>:</h2>
         <p>Serivceman has previously reported sick on the following date:</p>
-        <p><textarea id="w3review" name="w3review" rows="5" cols="60">
+        <p><textarea id="history_3a" name="history_3a" rows="5" cols="60">
 [X]. [DDMMYY] (Reason) [Excuse] from [DDMMYY] to [DDMMYY]
         </textarea></p>
     </section>
 
     <section>
         <h2>Timeline Of RS:</h2>
-        <p><textarea id="w3review" name="w3review" rows="18" cols="80">
+        <p><textarea id="history_3b" name="history_3b" rows="18" cols="80">
 On {{DATE}},
 
 At [HHMM]hrs, Serviceman request to report sick for [SYMPTOMS].
@@ -78,8 +78,8 @@ At [HHMM]hrs, PCR swab test returned *[POSITIVE/NEGATIVE]*.
 
     <section>
         <h2>Other Details</h2>
-        <p><label for="results_Overall"><b>SWAB Test Done: </b></label>
-        <select name="results_Overall" id="results_Overall">
+        <p><label for="results_ALL"><b>SWAB Test Done: </b></label>
+        <select name="results_ALL" id="results_ALL">
             <option value="X">Pending</option>
             <option value="N">Negative</option>
             <option value="P">Positive</option>
@@ -106,17 +106,17 @@ At [HHMM]hrs, PCR swab test returned *[POSITIVE/NEGATIVE]*.
     <section>
         <h2>4) <b>Current Status</b>:</h2>
         <p>E.g. [Excuse] from [DDMMYY] to [DDMMYY].</p>
-        <p><input type = "text" name = "Name" /> from {{DATE}} to <input type = "text" name = "Name" /></p>
+        <p><input type = "status" name = "status" /> from {{DATE}} to <input type = "date_end" name = "date_end" /></p>
     </section>
 
     <section>
         <h2>5) <b>Date & Time of Incident</b>:</h2>
-        <p>{{DATE}}, <input type = "text" name = "Name" />hrs</p>
+        <p>{{DATE}}, <input type = "text" name = "initial_time"/>hrs</p>
     </section>
 
     <section>
         <h2>6) <b>Location of incident</b>:</h2>
-        <p><input type = "text" name = "Name" /></p>
+        <p><input type = "location" name = "location"/></p>
     </section>
 
     <section>
@@ -142,9 +142,9 @@ At [HHMM]hrs, PCR swab test returned *[POSITIVE/NEGATIVE]*.
     <section>
         <h2>10) <b>Reporting Officer</b>: </h2>
         <p><b>Point of Contact</b>:</p>
-        <p>3SG <input type = "text" name = "Name" /></p>
+        <p>3SG <input type = "text" name = "POC_name" /></p>
         <p>DET COMD, SIG COY</p>
-        <p><input type = "text" name = "Name" /></p>
+        <p><input type = "text" name = "POC_phone" /></p>
     </section>
 
     <section>
