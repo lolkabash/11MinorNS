@@ -26,11 +26,7 @@ class Form:
     def sect_0(self):
         self.sections[
             0
-        ] = f"""
-        *{self.date}, {self.time}hrs*
-        *11 C41 BN, SIG*
-        *{self.type}*
-        """
+        ] = f"*{self.date}, {self.time}hrs*\n*11 C41 BN, SIG*\n*{self.type}*"
 
     def sect_1(self, nature):
         if nature == "TR":
@@ -39,142 +35,68 @@ class Form:
             nature = "Non-Training Related"
         self.sections[
             1
-        ] = f"""
-        1) *Nature and Type of incident*:
-        {nature}
-        {self.symptoms.upper()}
-        """
+        ] = f"1) *Nature and Type of incident*:\n{nature}\n{self.symptoms.upper()}"
 
     def sect_2(self, NRIC, rank, fullname, service, sex, age):
         masked_NRIC = NRIC[:1] + "XXXX" + NRIC[5:]
         self.sections[
             2
-        ] = f"""
-        2) *Particulars of Serviceman/men Involved*:
-        NRIC: {masked_NRIC.upper()}
-        Rank/Name: {rank.upper()} {fullname.upper()}
-        Svs Status: {service.upper()}
-        Sex/Age: {sex.upper()}/{age}
-        Coy/Pl: SIGNALS
-        """
+        ] = f"2) *Particulars of Serviceman/men Involved*:\nNRIC: {masked_NRIC.upper()}\nRank/Name: {rank.upper()} {fullname.upper()}\nSvs Status: {service.upper()}\nSex/Age: {sex.upper()}/{age}\nCoy/Pl: SIGNALS"
 
     def sect_3a(self, history):
         self.sections[
             3
-        ] = f"""
-        3) *Brief Description of Incident*:
-        Serviceman has previously reported sick on the following dates:
-        {history}
-        """
+        ] = f"3) *Brief Description of Incident*:\nServiceman has previously reported sick on the following dates:\n{history}"
 
     def sect_3b(self, updates):
         self.sections[
             4
-        ] = f"""
-        On {self.date},
-
-        At {self.initial_time}, Serviceman requested to report sick for {self.symptoms}.
-
-        {updates}
-        """
+        ] = f"On {self.date},\n\nAt {self.initial_time}, Serviceman requested to report sick for {self.symptoms}.\n\n{updates}"
 
     def sect_3c(self, update_date, updates):
-        self.sections[
-            5
-        ] = f"""
-        On {update_date},
-
-        {updates}
-        """
+        self.sections[5] = f"On {update_date},\n\n{updates}"
 
     def sect_3d(self, overall, ART, PCR):
         swap_lib = {"X": "PENDING", "N": "NEGATIVE", "P": "POSITIVE"}
         self.sections[
             6
-        ] = f"""
-        *Other Details*
-        - *SWAB Test Done*: *{swap_lib[overall]}* (ART - *{swap_lib[ART]}*, PCR - *{swap_lib[PCR]}*)
-        - Travelled Overseas in the past 14 days: NIL
-        - Close Contact with a confirmed case: NIL
-        - Stays in a foreign worker dormitory: NIL
-        - Works in a High-Risk Area: NIL
-        - Prolonged ARI with fever above 37.5C for 4 days and above: NIL
-        - Suspected Pneumonia: NIL
-        """
+        ] = f"*Other Details*\n- *SWAB Test Done*: *{swap_lib[overall]}* (ART - *{swap_lib[ART]}*, PCR - *{swap_lib[PCR]}*)\n- Travelled Overseas in the past 14 days: NIL\n- Close Contact with a confirmed case: NIL\n- Stays in a foreign worker dormitory: NIL\n- Works in a High-Risk Area: NIL\n- Prolonged ARI with fever above 37.5C for 4 days and above: NIL\n- Suspected Pneumonia: NIL"
 
     def sect_4(self, status, date_end):
         self.sections[
             7
-        ] = f"""
-        4) *Current Status*:
-        {status} from {self.date} to {date_end}
-        """
+        ] = f"4) *Current Status*:\n{status} from {self.date} to {date_end}"
 
     def sect_5(self):
         self.sections[
             8
-        ] = f"""
-        5) *Date & Time of Incident*:
-        {self.date}, {self.initial_time}hrs
-        """
+        ] = f"5) *Date & Time of Incident*:\n{self.date}, {self.initial_time}hrs"
 
     def sect_6(self, location):
         if not location:
             location = "Pasir Laba Camp"
-        self.sections[
-            9
-        ] = f"""
-        6) *Location of incident*:
-        {location}
-        """
+        self.sections[9] = f"6) *Location of incident*:\n{location}"
 
     def sect_7(self, actions):
         if actions == "URTI":
             actions = "Unit will continue to monitor serviceman’s condition. He will report back to camp when his MC ends or when his swab test result returns negative. Which ever is later."
-        self.sections[
-            10
-        ] = f"""
-        7) *Follow Up Actions*:
-        {actions}
-        """
+        self.sections[10] = f"7) *Follow Up Actions*:\n{actions}"
 
     def sect_8(self):
         self.sections[
             11
-        ] = f"""
-        8) *Details/Particulars of civilian involved, if any*: (For accidents)
-        NRIC (Masked): -
-        Name: -
-        Age: -
-        Gender: -
-        Contact No.: - 
-        """
+        ] = f"8) *Details/Particulars of civilian involved, if any*: (For accidents)\nNRIC (Masked): -\nName: -\nAge: -\nGender: -\nContact No.: -"
 
     def sect_9(self):
-        self.sections[
-            12
-        ] = f"""
-        9) *Date & Time reported to GSOC*:
-        Verbal: -
-        ASIS: - 
-        """
+        self.sections[12] = f"9) *Date & Time reported to GSOC*:\nVerbal: -\nASIS: -"
 
     def sect_10(self, POC_rank, POC_name, POC_rel, POC_phone):
         self.sections[
             13
-        ] = f"""
-        10) *Reporting Officer*: 
-
-        *Point of Contact*:
-        {POC_rank} {POC_name}
-        {POC_rel}, SIG COY
-        {POC_phone}
-
-        *Vetted By*
-        """
+        ] = f"10) *Reporting Officer*: \n\n*Point of Contact*:\n{POC_rank} {POC_name}\n{POC_rel}, SIG COY\n{POC_phone}\n\n*Vetted By*"
 
     def display(self):
-        return "".join(self.sections)
+        return "\n\n".join(self.sections)
 
 
 # Chat Bot (Main Program)
@@ -269,6 +191,3 @@ def generate_blank():
     form.sect_10(POC_rank, POC_name, POC_rel, POC_phone)
 
     return form.display()
-
-
-print(generate_blank())

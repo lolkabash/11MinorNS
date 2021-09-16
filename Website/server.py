@@ -1,6 +1,6 @@
 # Imports
 from flask import Flask, render_template, request
-from modules import Form, site
+from web_modules import Form, site
 from datetime import date, datetime
 
 app = Flask(__name__)
