@@ -198,7 +198,7 @@ def end(update: Update, context: CallbackContext) -> int:
 # Second level conversation callbacks
 def select_level(update: Update, context: CallbackContext) -> str:
     """Choose a Section of the 11 Liner to Edit."""
-    text = "Choose a Section of the 11 Liner to Edit. Also you can show the gathered data or go back."
+    text = "Choose a Section of the 11 Liner to Edit."
     buttons = [
         [
             InlineKeyboardButton(text="Section 1", callback_data=str(SECT_1)),
@@ -209,7 +209,7 @@ def select_level(update: Update, context: CallbackContext) -> str:
         [
             InlineKeyboardButton(text="Section 7", callback_data=str(SECT_7)),
             InlineKeyboardButton(text="Section 10", callback_data=str(SECT_10)),
-            InlineKeyboardButton(text="Show data", callback_data=str(SHOWING)),
+            InlineKeyboardButton(text="Show Form", callback_data=str(SHOWING)),
             InlineKeyboardButton(text="Back", callback_data=str(END)),
         ],
     ]
