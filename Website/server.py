@@ -3,11 +3,12 @@ from flask import Flask, render_template, request
 from web_modules import Form, site
 from datetime import date, datetime
 import os
-ON_HEROKU = os.environ.get('ON_HEROKU')
+
+ON_HEROKU = os.environ.get("ON_HEROKU")
 
 if ON_HEROKU:
     # get the heroku port
-    port = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
+    port = int(os.environ.get("$PORT", 17995))  # as per OP comments default is 17995
 else:
     port = 3000
 
